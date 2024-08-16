@@ -8,7 +8,6 @@ require('dotenv').config();
 
 const app=express();
 
-
 app.use(bodyParser.json());
  
 mongoose.connect('mongodb://localhost:27017/E-CommerceReact')
@@ -18,7 +17,6 @@ const database = mongoose.connection;
 database.on('error', (error) => {
     console.log(error);
 });
-
 
 database.once('connected', () => {
     console.log('Connected to  Mongodb');
