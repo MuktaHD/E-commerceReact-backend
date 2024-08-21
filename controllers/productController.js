@@ -90,7 +90,6 @@ async function updateProduct(req,res) {
     }
     
 }
-
 //delete product
 
 async function deleteProduct(req,res){
