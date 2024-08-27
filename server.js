@@ -1,13 +1,16 @@
 const express=require('express');
 const mongoose=require('mongoose');
+const cors = require('cors');
 const bodyParser=require('body-parser');
 const productRoutes=require('./routes/productRoute');
 const userRoutes=require('./routes/userRoute');
 const categoryRoutes=require('./routes/categoryRoute');
+
 require('dotenv').config();
 
 const app=express();
 
+app.use(cors());
 app.use(bodyParser.json());
  
 mongoose.connect('mongodb://localhost:27017/E-CommerceReact')

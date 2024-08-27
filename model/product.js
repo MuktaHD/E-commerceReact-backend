@@ -34,7 +34,7 @@ const productSchema=new mongoose.Schema({
     type: Date,
     default: Date.now
    },
-   
+   imageUrl: { type: String, required: true },
    
 });
 

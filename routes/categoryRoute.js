@@ -10,13 +10,13 @@ const {
 
 const router=express.Router();
 
-router.post('/addCategory', createCategory);
+router.post('/addCategory', auth.authorise,auth.admin,createCategory);
 
-router.get('/getAllCategories', getAllCategories);
+router.get('/getAllCategories',auth.authorise,auth.admin, getAllCategories);
 
-router.put('/updateCategory/:id', updateCategory);
+router.put('/updateCategory/:id',auth.authorise,auth.admin, updateCategory);
 
-router.delete('/deleteCategory/:id', deleteCategory);
+router.delete('/deleteCategory/:id',auth.authorise,auth.admin, deleteCategory);
 
 module.exports=router;
 

@@ -42,8 +42,29 @@ async function loginUser  (req, res)  {
     res.json({ user, token });
 }
 
+
+async function userInformation(req,res){
+    console.log('user --',req.user);
+ 
+    try{
+    const user=await User.findById(req.user.id);
+    console.log(user)
+    if(!user){
+        return res.status(404).send({message:'User not found',success:false});
+    }else{
+        return res.status(200).send({user,success:true});
+    }
+}catch (error)
+{
+    console.error(error);
+    return res.status(500).send({message:'Server error',success:false});
+}
+   
+ 
+}
 module.exports={
     registerUser,
-    loginUser
+    loginUser,
+    userInformation
     
  };
