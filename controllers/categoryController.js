@@ -21,7 +21,6 @@ async function createCategory  (req, res)  {
 };
 
 
-
 //getAll category
 async function getAllCategories (req, res) {
     try {
