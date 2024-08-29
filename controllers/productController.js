@@ -119,7 +119,6 @@ async function deleteProduct(req,res){
 }
 
 
-
 //Get products by category name
 async function getProductByCategoryName(req,res) {
     try {
