@@ -24,7 +24,6 @@ database.on('error', (error) => {
 database.once('connected', () => {
     console.log('Connected to  Mongodb');
 });
-
 app.use('/api',productRoutes);
 
 //userRoute added
