@@ -121,18 +121,27 @@ async function deleteProduct(req,res){
 
 
 //Get products by category name
-async function getProductByCategoryName(req,res) {
+
+
+async function getProductByCategoryName(req, res) {
     try {
-        const products = await Product.find({ category: req.params.name }).populate('category', 'name');
-        if (!products) {
+        // Find the category by name
+        const category = await Category.findOne({ name: req.params.name });
+        if (!category) {
+            return res.status(404).json({ msg: 'Category not found' });
+        }
+
+        // Find products with the found category's ObjectId
+        const products = await Product.find({ category: category._id }).populate('category', 'name');
+        if (!products.length) {
             return res.status(404).json({ msg: 'Products not found' });
         }
+
         res.json(products);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
     }
-    
 }
 
 module.exports={
@@ -143,3 +152,8 @@ module.exports={
     getProductById,
     getProductByCategoryName,
  };
+
+
+
+
+//  http://127.0.0.1:5001/api/getProductByCategoryName/Television
