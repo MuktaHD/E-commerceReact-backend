@@ -7,7 +7,6 @@ const userRoutes=require('./routes/userRoute');
 const categoryRoutes=require('./routes/categoryRoute');
 
 require('dotenv').config();
-
 const app=express();
 
 app.use(cors());
@@ -24,7 +23,6 @@ database.on('error', (error) => {
 database.once('connected', () => {
     console.log('Connected to  Mongodb');
 });
-
 app.use('/api',productRoutes);
 
 //userRoute added
