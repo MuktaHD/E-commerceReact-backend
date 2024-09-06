@@ -7,6 +7,8 @@ const userRoutes=require('./routes/userRoute');
 const categoryRoutes=require('./routes/categoryRoute');
 const File=require('./model/fileModel');
 const multer=require('multer');
+const path = require('path');
+const Product = require('./model/product');
 
 require('dotenv').config();
 const app=express();
@@ -40,22 +42,42 @@ app.post('/Uploads', upload.single('File'), async (req, res) => {
 });
 
 
+app.use('/uploads', express.static(path.join(__dirname, 'Uploads')));
+app.put('/api/updateProduct/:id', upload.single('file'), async (req, res) => {
+    const { id } = req.params;
+    const { name, description, category, price, quantity } = req.body;
+  
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ msg: "Invalid product ID" });
+    }
+  
+    try {
+      let product = await Product.findById(id);
+      if (!product) {
+        return res.status(404).json({ msg: 'Product not found' });
+      }
+  
+      // Update fields
+      product.name = name || product.name;
+      product.description = description || product.description;
+      product.category = category || product.category;
+      product.price = price || product.price;
+      product.quantity = quantity || product.quantity;
 
-// app.post('/Uploads',upload.single('File'),async(req,res)=>{
-//     const {filename ,path, originalname, mimetype, size}=req.file;
-    
-//     const newFile=new File({ filename ,path, originalname, mimetype, size});
-    
-//     try{
-//         await newFile.save();
-//         res.status(201).send(`File Upload:${req.file.filename}`);
-    
-//     }catch (err) {
-//         res.status(500).send(err);
-//     }
-    
-//     });
-    
+      // Update imageUrl if a new file is uploaded
+      if (req.file) {
+        product.imageUrl = `/Uploads/${req.file.filename}`;
+      }
+  
+      await product.save();
+      res.status(200).json(product);
+    } catch (error) {
+      console.error('Error updating product:', error.message);
+      res.status(500).send('Server Error');
+    }
+  });
+
+
     
     app.get('/download/:filename',async(req,res)=>{
         console.log(req.params)
@@ -94,3 +116,6 @@ app.use('/api/category',categoryRoutes);
 app.listen(5001, () => {
         console.log('Server is running on port http://127.0.0.1:5001');
     });
+
+
+
