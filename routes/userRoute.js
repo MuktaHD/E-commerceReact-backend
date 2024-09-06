@@ -7,6 +7,16 @@ const router = express.Router();
  router.post('/register', registerUser);
  // POST /api/users/login
  router.post('/login', loginUser);
+ // Example route in your backend
+router.get('/api/user/me', auth.authorise, (req, res) => {
+    const user = req.user; // assuming 'req.user' is set by 'authenticateToken' middleware
+    res.json({
+      userId: user.id,
+      username: user.username,
+      email: user.email,
+    });
+  });
+  
  router.get('/getUserInfo',auth.authorise, userInformation);
 
 module.exports = router;

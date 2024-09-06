@@ -2,22 +2,38 @@ const Category=require('../model/category');
 
 //Add Category
 async function createCategory  (req, res)  {
-    const { name,createdBy } = req.body;
+    // const { name,createdBy } = req.body;
+    // try {
+    //     const categoryExists = await Category.findOne({ name });
+    //     if (categoryExists) {
+    //         return res.status(400).json({ msg: 'Category already exists' });
+    //     }
+    //     const category = new Category({ 
+    //         name,
+    //         createdBy,
+    //         createdAt:Date.now() });
+    //     await category.save();
+    //     res.status(201).json({ msg: 'Category created successfully' });
+    // } catch (err) {
+    //     console.error(err.message);
+    //     res.status(500).send('Server Error');
+    // }
     try {
+        const { name, createdBy } = req.body;
+        if (!name || !createdBy) {
+          return res.status(400).json({ msg: 'Name and createdBy are required' });
+        }
         const categoryExists = await Category.findOne({ name });
         if (categoryExists) {
             return res.status(400).json({ msg: 'Category already exists' });
         }
-        const category = new Category({ 
-            name,
-            createdBy,
-            createdAt:Date.now() });
-        await category.save();
-        res.status(201).json({ msg: 'Category created successfully' });
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server Error');
-    }
+        // Proceed to create the category
+        const newCategory = new Category({ name, createdBy });
+        await newCategory.save();
+        res.status(201).json({ msg: 'Category added successfully' });
+      } catch (error) {
+        res.status(500).json({ msg: 'Server Error' });
+      }
 };
 
 
