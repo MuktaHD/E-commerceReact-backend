@@ -2,22 +2,9 @@ const Category=require('../model/category');
 
 //Add Category
 async function createCategory  (req, res)  {
-    // const { name,createdBy } = req.body;
-    // try {
+    
     //     const categoryExists = await Category.findOne({ name });
-    //     if (categoryExists) {
-    //         return res.status(400).json({ msg: 'Category already exists' });
-    //     }
-    //     const category = new Category({ 
-    //         name,
-    //         createdBy,
-    //         createdAt:Date.now() });
-    //     await category.save();
-    //     res.status(201).json({ msg: 'Category created successfully' });
-    // } catch (err) {
-    //     console.error(err.message);
-    //     res.status(500).send('Server Error');
-    // }
+   
     try {
         const { name, createdBy } = req.body;
         if (!name || !createdBy) {
