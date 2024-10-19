@@ -2,40 +2,6 @@
 // const mongoose = require('mongoose');
 // const Product = require('../model/product');
 // const Category = require('../model/category');
-// // Add product
-// async function createProduct(req, res) {
-//     const { name, description, category, price, available, quantity, createdBy, imageUrl } = req.body;  
-
-//     try {
-//         const categoryExists = await Category.findById(category);
-//         if (!categoryExists) {
-//             return res.status(400).json({ msg: 'Invalid Category' });
-//         }
-
-//         const productExists = await Product.findOne({ name, category });
-//         if (productExists) {
-//             return res.status(400).json({ msg: 'Product already exists' });
-//         }
-
-//         const product = new Product({
-//             name,
-//             description,
-//             category,
-//             price,
-//             available,
-//             quantity,
-//             createdBy,
-//             imageUrl,  // Add imageUrl here
-//             createdAt: Date.now()
-//         });
-
-//         await product.save();
-//         res.status(201).json(product);
-//     } catch (err) {
-//         console.error(err.message);
-//         res.status(500).send('Server Error');
-//     }
-// }
 
 // // Get product by id
 // async function getProductById(req, res) {
