@@ -4,7 +4,6 @@
 // router.post('/addProduct', createProduct);
 // router.get('/getAllProduct', getAllProduct);
 
-// // The route that caused the error:
 // router.get('/getAllproductWithAuth', auth.authorise, async (req, res) => {
 //     try {
 //         const products = await Product.find().populate('category', 'name');
