@@ -1,17 +1,4 @@
 
-// const express = require('express');
-// const Product = require('../model/product');
-// const auth = require('../middleware/auth');
-// const {
-//     createProduct,
-//     getAllProduct,
-//     getProductById,
-//     updateProduct,
-//     deleteProduct,
-//     getProductByCategoryName
-// } = require('../controllers/productController');
-
-// const router = express.Router();
 
 // // Define routes
 // router.post('/addProduct', createProduct);
