@@ -1,7 +1,4 @@
 
-// const mongoose = require('mongoose');
-// const Product = require('../model/product');
-// const Category = require('../model/category');
 
 // // Get product by id
 // async function getProductById(req, res) {
