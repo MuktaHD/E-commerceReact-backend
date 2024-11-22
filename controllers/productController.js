@@ -5,7 +5,6 @@
   
   
 
-// // Update product by id
 // async function updateProduct(req, res) {
 //     const { name, description, category, price, quantity, imageUrl } = req.body;  
 //     const { id } = req.params;
