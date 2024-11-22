@@ -1,15 +1,5 @@
 
 
-// // Get all products
-// async function getAllProduct(req, res) {
-//     try {
-//         const products = await Product.find().populate('category', 'name');
-//         res.status(201).json(products);
-//     } catch (err) {
-//         console.error(err.message);
-//         res.status(500).send('Server Error');
-//     }
-// }
 
   
   
