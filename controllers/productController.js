@@ -5,34 +5,6 @@
   
   
 
-// async function updateProduct(req, res) {
-//     const { name, description, category, price, quantity, imageUrl } = req.body;  
-//     const { id } = req.params;
-
-//     if (!mongoose.Types.ObjectId.isValid(id)) {
-//         return res.status(400).json({ msg: "Invalid product ID" });
-//     }
-
-//     try {
-//         const product = await Product.findById(req.params.id);
-//         if (!product) {
-//             return res.status(404).json({ msg: 'Product not found' });
-//         }
-
-//         product.name = name;
-//         product.description = description;
-//         product.category = category;
-//         product.price = price;
-//         product.quantity = quantity;
-//         product.imageUrl = imageUrl;  // Add imageUrl here
-
-//         await product.save();
-//         res.status(201).json(product);
-//     } catch (err) {
-//         console.error(err.message);
-//         res.status(500).send('Server Error');
-//     }
-// }
 
 // //delete product
 
