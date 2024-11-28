@@ -1,11 +1,4 @@
 
-
-
-  
-  
-  
-
-
 // //delete product
 
 // async function deleteProduct(req,res){
