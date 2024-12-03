@@ -1,6 +1,5 @@
 
 // //delete product
-
 // async function deleteProduct(req,res){
 //     try {
 //         const product = await Product.findByIdAndDelete(req.params.id);
