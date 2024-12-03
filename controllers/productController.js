@@ -9,7 +9,7 @@
 //         // if (product.createdBy.toString()!== req.user.id) {
 //         //     return res.status(401).json({ msg: 'Not Authorized' });
 //         // }
-    
+  
 //         res.status(201).json({ msg: 'Product Deleted....' });
 //     } catch (err) {
 //         // console.error(err.message);
