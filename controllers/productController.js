@@ -1,32 +1,5 @@
 
 
-
-
-
-// //Get products by category name
-
-
-// async function getProductByCategoryName(req, res) {
-//     try {
-//         // Find the category by name
-//         const category = await Category.findOne({ name: req.params.name });
-//         if (!category) {
-//             return res.status(404).json({ msg: 'Category not found' });
-//         }
-
-//         // Find products with the found category's ObjectId
-//         const products = await Product.find({ category: category._id }).populate('category', 'name');
-//         if (!products.length) {
-//             return res.status(404).json({ msg: 'Products not found' });
-//         }
-
-//         res.json(products);
-//     } catch (err) {
-//         console.error(err.message);
-//         res.status(500).send('Server Error');
-//     }
-// }
-
 // module.exports={
 //     createProduct,
 //     getAllProduct,
