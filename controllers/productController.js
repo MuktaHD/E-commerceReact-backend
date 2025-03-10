@@ -1,24 +1,6 @@
 
-// //delete product
-// async function deleteProduct(req,res){
-//     try {
-//         const product = await Product.findByIdAndDelete(req.params.id);
-//         if (!product) {
-//             return res.status(404).json({ msg: 'Product not found' });
-//         }
-//         // if (product.createdBy.toString()!== req.user.id) {
-//         //     return res.status(401).json({ msg: 'Not Authorized' });
-//         // }
-  
-//         res.status(201).json({ msg: 'Product Deleted....' });
-//     } catch (err) {
-//         // console.error(err.message);
-//         // if (err.kind === 'ObjectId') {
-//         //     return res.status(404).json({ msg: 'Product not found' });
-//         // }
-//         res.status(500).send('Server Error');
-//     }
-// }
+
+
 
 
 // //Get products by category name
