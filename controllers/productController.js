@@ -1,14 +1,5 @@
 
 
-// module.exports={
-//     createProduct,
-//     getAllProduct,
-//     updateProduct,
-//     deleteProduct,
-//     getProductById,
-//     getProductByCategoryName,
-//  };
-
 
 
 
