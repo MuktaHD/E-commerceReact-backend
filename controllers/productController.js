@@ -1,15 +1,5 @@
 
-
-
-
-
-// //  http://127.0.0.1:5001/api/getProductByCategoryName/Television
-
-
-
-
-
-
+ //  http://127.0.0.1:5001/api/getProductByCategoryName/Television
 
 const path = require('path');
 const fs = require('fs');
